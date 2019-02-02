@@ -124,7 +124,6 @@ makeConfig force = do
     T.when hasSpagoDhall $ die
        $ "Found " <> pathText <> ": there's already a project here. "
       <> "Run `spago init --force` if you're sure you want to overwrite it."
-  T.touch path
   T.writeTextFile path Templates.spagoDhall
   Dhall.Format.format Dhall.Pretty.Unicode (Just $ Text.unpack pathText)
 
