@@ -7,6 +7,9 @@ branches:
 environment:
   STACK_ROOT: C:\sr
   STACK_VERSION: 1.9.3
+  PYTHON: "C:\\Python35-x64"
+  PYTHON_VERSION: "3.5.0"
+  PYTHON_ARCH: "64"
   
   # Workaround a gnarly bug https://github.com/haskell/cabal/issues/5386
   # See: https://www.fpcomplete.com/blog/2018/06/sed-a-debugging-story
@@ -19,7 +22,6 @@ environment:
 install:
   - choco install -y haskell-stack --version %STACK_VERSION%
   - stack setup > nul
-  - choco install python --version 3.6.3
   - choco install purescript
 
 cache:
