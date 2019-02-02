@@ -34,7 +34,8 @@ build_script:
   - 7z a "bin\windows.tar.gz" "%APPVEYOR_BUILD_FOLDER%\bin\spago.exe"
 
 test_script:
-  - cd test\spago-test & python ..\spago-test.py & cd ..\..
+  - set PATH=C:\projects\spago\bin;%PATH%
+  - cd test\spago-test && python ..\spago-test.py && cd ..\..
 
 artifacts:
   - path: bin\windows.tar.gz
