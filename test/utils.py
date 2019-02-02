@@ -3,7 +3,7 @@ import os.path
 import signal
 import time
 import difflib
-
+import platform
 
 def fail(msg):
     """
@@ -47,7 +47,10 @@ def run_for(delay, command):
     with open(os.devnull, 'w') as FNULL:
         process = subprocess.Popen(command, stdout=FNULL, stderr=FNULL)
         time.sleep(delay)
-        process.send_signal(signal.SIGINT)
+        if platform.system() == 'Windows':
+            process.send_signal(signal.CTRL_C_EVENT)
+        else:
+            process.send_signal(signal.SIGINT)
 
 
 def check_fixture(name):

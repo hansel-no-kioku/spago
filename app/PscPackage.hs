@@ -65,7 +65,6 @@ makePackagesDhall force command = do
     T.when hasPackagesDhall $ T.die
        $ "Found " <> packagesDhallText <> ": there's already a project here. "
       <> "Run `spago " <> command <> " --force` if you're sure you want to overwrite it."
-  T.touch packagesDhallPath
   T.writeTextFile packagesDhallPath Templates.packagesDhall
   Dhall.Format.format Dhall.Pretty.Unicode (Just $ Text.unpack packagesDhallText)
 
