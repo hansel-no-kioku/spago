@@ -48,7 +48,7 @@ def run_for(delay, command):
         process = subprocess.Popen(command, stdout=FNULL, stderr=FNULL)
         time.sleep(delay)
         if platform.system() == 'Windows':
-            process.send_signal(signal.CTRL_C_EVENT)
+            process.send_signal(signal.CTRL_BREAK_EVENT)
         else:
             process.send_signal(signal.SIGINT)
 
