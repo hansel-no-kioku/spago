@@ -9,16 +9,27 @@
   },
   "main": "index.js",
   "files": [
-    "install",
-    "spago"
+    "index.js",
+    "bin"
   ],
   "scripts": {
-    "install": "./install"
+    "install": "binwrap-install",
+    "prepare": "binwrap-prepare",
+    "test": "binwrap-test",
+    "prepublish": "npm test"
   },
   "author": "Justin Woo, Fabrizio Ferrai",
   "bin": {
-    "spago": "./spago"
+    "spago": "bin/spago"
   },
-  "keywords": ["purescript", "psc-package", "spago", "spacchetti"],
-  "license": "MIT"
+  "keywords": [
+    "purescript",
+    "psc-package",
+    "spago",
+    "spacchetti"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "binwrap": "^0.2.0"
+  }
 }
